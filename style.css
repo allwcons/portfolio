@@ -1,0 +1,286 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease-in-out,color 0.2s ease-in-out;
+}
+@media (prefers-color-scheme: light) {
+  :root{
+    --text-color:black;
+    --theme-bg: #F3F6FD;
+    --theme-box-bg:white;
+    --theme-box-shadow:0px 0px 4px rgba(0, 0, 0, 0.25);
+    --radius:8px;
+    --icon-fill:#444242;
+    --icon-fill-hover:#008fa1;
+    --viewer-active-bg:#463752;
+    --viewer-active-bg-hover:#745f85;
+    --viewer-bg-hover:#afaab3a1;
+    --viewer-active-fill:#D6D6D6;
+
+    --project-c1:hsla(194, 79%, 73%, 1);
+    --project-c2:hsla(90, 79%, 73%, 1);
+    --project-c3:hsla(68, 71%, 61%, 1);
+    --project-c4:hsla(36, 75%, 73%, 1);
+  }
+}
+.dark{
+    --theme-bg: #3E4557;
+    --text-color:white;
+    --text-seconday-color:rgb(192, 189, 189);
+    --theme-box-bg:646A7B;
+    --theme-box-shadow:0px 0px 4px rgba(0, 0, 0, 0.25);
+    --radius:8px;
+    --icon-fill:#F3F3F3;
+    --icon-fill-hover:rgb(86, 116, 172);
+    --viewer-active-bg:#54607d;
+    --viewer-active-bg-hover:rgb(95, 106, 133);
+    --viewer-bg-hover:#afaab3a1;
+    --viewer-active-fill:#D6D6D6;
+
+    --project-c1:#3E3E3E;
+    --project-c2:#271225;
+    --project-c3:#1F3E44;
+    --project-c4:#37250B;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root{
+    --theme-bg: #3E4557;
+    --text-color:white;
+    --text-seconday-color:rgb(192, 189, 189);
+    --theme-box-bg:646A7B;
+    --theme-box-shadow:0px 0px 4px rgba(0, 0, 0, 0.25);
+    --radius:8px;
+    --icon-fill:#F3F3F3;
+    --icon-fill-hover:rgb(86, 116, 172);
+    --viewer-active-bg:#54607d;
+    --viewer-active-bg-hover:rgb(95, 106, 133);
+    --viewer-bg-hover:#afaab3a1;
+    --viewer-active-fill:#D6D6D6;
+
+    --project-c1:#3E3E3E;
+    --project-c2:#271225;
+    --project-c3:#1F3E44;
+    --project-c4:#37250B;
+  }
+}
+
+body{
+  margin-inline:10px;
+  background-color: var(--theme-bg);
+}
+.flex{
+  display: flex;
+}
+.flex-col{
+  display: flex;
+  flex-direction: column;
+}
+.spacer{
+  justify-content: space-between;
+}
+.spacer-around{
+  justify-content: space-around;
+}
+.center{
+  justify-content: center;
+  align-items: center;
+
+}
+.h-center{
+  justify-content: center;
+}
+.v-center{
+  align-items: center;
+}
+
+.topbar{
+  width: 100vw;
+}
+.topbar > *{
+  margin-inline:30px;
+}
+.topbar .author{
+  border-radius: 100%;
+  inline-size: 50px;
+  block-size: 50px;
+  position: relative;
+  background-image: url(author.png);
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center 100%;
+  margin-block-start: 10px;
+}
+
+.topbar .author::before{
+    background: linear-gradient(#ce1515, #9198e5);
+    content: "";
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+    left: 50%;
+    border-radius: 100%;
+    width: 100%;
+    --border-width:4px;
+    padding-inline: var(--border-width);
+    padding-block: var(--border-width);
+    height: 100%;
+    transform: translate(-50%,-50%);
+}
+
+.topbar .author::after{
+    background: var(--theme-bg);
+    content: "";
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+    left: 50%;
+    border-radius: 100%;
+    width: 90%;
+    --border-width:4px;
+    padding-inline: var(--border-width);
+    padding-block: var(--border-width);
+    height: 90%;
+    transform: translate(-50%,-50%);
+}
+.navbar{
+  max-width: 400px;
+  height: 60px;
+  background-color: var(--theme-box-bg);
+  box-shadow: var(--theme-box-shadow);
+  margin-inline:auto;
+  margin-block-start: 20px;
+  border-radius: var(--radius);
+}
+.navbar > .navitem{
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text-color);
+}
+.navbar > .navitem > .logo{
+  text-align: center;
+}
+svg{
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.navbar > .navitem > .logo svg path{
+  fill: var(--icon-fill);
+}
+
+.navbar > .navitem:hover > .logo svg path{
+  fill: var(--icon-fill-hover);
+}
+
+.projectArea{
+  flex-wrap: wrap;
+  max-width: 1132px;
+  background-color: var(--theme-box-bg);
+  box-shadow: var(--theme-box-shadow);
+  margin-inline:auto;
+  margin-block-start: 20px;
+  border-radius: var(--radius);
+  padding-inline:20px;
+  padding-block:10px;
+  color: var(--text-seconday-color);
+}
+.projectArea .inline_section{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 0.8em;
+}
+.projectArea .inline_section .viewer{
+  margin-block-start: 10px;
+}
+.projectArea .inline_section .viewer .view{
+  margin-inline-start: 2px;
+  padding: 0!important;
+  width: 29px;
+  height: 29px;
+  text-align: center;
+  padding:10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.projectArea .inline_section .viewer .view:not(.active) svg{
+  stroke: var(--icon-fill);
+  fill: var(--icon-fill);
+}
+.projectArea .inline_section .viewer .view:not(.active):hover{
+  background-color: var(--viewer-bg-hover); 
+}
+.projectArea .inline_section .viewer > .active{
+  background-color: var(--viewer-active-bg);
+}
+.projectArea .inline_section .viewer > .active svg{
+  fill: var(--viewer-active-fill);
+}
+.inline_section .qunatity{
+  margin-inline:10px;
+  font-size: 1.15em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.inline_section .number{
+  color: gray;
+}
+.inline_section .type{
+  font-weight: 400;
+}
+.projectArea h3{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  margin-block-end: 10px;
+}
+.projectArea .projects .project{
+}
+.projectArea .projects .project{
+  box-shadow: var(--theme-box-shadow);
+  padding-inline:15px;
+  padding-block:10px;
+  border-radius: var(--radius);
+}
+a{
+  color: var(--text-seconday-color);
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.projectArea .projects .project .detail h1{
+  font-family: Roboto,sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 14px;
+}
+.projectArea .projects .project .detail path{
+    fill: var(--icon-fill);
+}
+.projectArea .projects .project .detail{
+  color: gray;
+  font-size: 0.8em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.projectArea .projects .project{
+  color: rgb(12, 12, 12);
+}
+.projectArea .projects{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+.projectArea .block{
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+}
+.c1{
+  background-color: var(--project-c1);
+}
+.c2{
+  background-color: var(--project-c2);
+}
+.c3{
+  background-color: var(--project-c3);
+}
+.c4{
+  background-color: var(--project-c4);
+}
