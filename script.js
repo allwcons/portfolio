@@ -10,6 +10,9 @@ function handleChangeView(elt) {
   projects.classList.remove("block")
   projects.classList.add(elt.dataset.role)
 }
+
+
+
 function findPresentTheme(){
   return getComputedStyle(document.body).getPropertyValue("--theme-bg") == " #F3F6FD" ? "light" : "dark"
 }
@@ -19,13 +22,13 @@ function handleThemeChange() {
   if (color == ' #F3F6FD') {
     document.body.classList.add("dark")
     document.body.classList.remove("light")
-    console.log("dark")
   } else if(color == ' #3E4557'){
     document.body.classList.remove("dark")
     document.body.classList.add("light")
     
   }
 }
+
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -173,6 +176,16 @@ window.onload = ()=>{
     addProject(project)
     number_project.innerHTML = count_project
   })
+  let theme = findPresentTheme()
+  if (theme == "dark"){
+  matchMedia("(prefers-color-scheme: light)").onchange = (e) =>{
+    handleThemeChange()
+  }
+  }else{
+      matchMedia("(prefers-color-scheme: dark)").onchange = (e) =>{
+    handleThemeChange()
+  }
+  }
 }
 
 
