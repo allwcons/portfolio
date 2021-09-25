@@ -24,6 +24,24 @@
     --project-c4:hsla(36, 75%, 73%, 1);
   }
 }
+.light{
+      --text-color:black;
+    --theme-bg: #F3F6FD;
+    --theme-box-bg:white;
+    --theme-box-shadow:0px 0px 4px rgba(0, 0, 0, 0.25);
+    --radius:8px;
+    --icon-fill:#444242;
+    --icon-fill-hover:#008fa1;
+    --viewer-active-bg:#463752;
+    --viewer-active-bg-hover:#745f85;
+    --viewer-bg-hover:#afaab3a1;
+    --viewer-active-fill:#D6D6D6;
+
+    --project-c1:hsla(194, 79%, 73%, 1);
+    --project-c2:hsla(90, 79%, 73%, 1);
+    --project-c3:hsla(68, 71%, 61%, 1);
+    --project-c4:hsla(36, 75%, 73%, 1);
+}
 .dark{
     --theme-bg: #3E4557;
     --text-color:white;

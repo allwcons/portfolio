@@ -10,13 +10,20 @@ function handleChangeView(elt) {
   projects.classList.remove("block")
   projects.classList.add(elt.dataset.role)
 }
-
+function findPresentTheme(){
+  return getComputedStyle(document.body).getPropertyValue("--theme-bg") == " #F3F6FD" ? "light" : "dark"
+}
+console.log(findPresentTheme())
 function handleThemeChange() {
   let color = getComputedStyle(document.body).getPropertyValue("--theme-bg")
   if (color == ' #F3F6FD') {
     document.body.classList.add("dark")
-  } else {
+    document.body.classList.remove("light")
+    console.log("dark")
+  } else if(color == ' #3E4557'){
     document.body.classList.remove("dark")
+    document.body.classList.add("light")
+    
   }
 }
 function capitalizeFirstLetter(string) {
