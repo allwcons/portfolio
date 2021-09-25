@@ -69,6 +69,7 @@
 body{
   margin-inline:10px;
   background-color: var(--theme-bg);
+  overflow-x:hidden;
 }
 .flex{
   display: flex;
