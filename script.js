@@ -19,7 +19,9 @@ function handleThemeChange() {
     document.body.classList.remove("dark")
   }
 }
-
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 let projectsList = [
   {
     link_view:"https://acsspage.evod.repl.co/",
@@ -101,7 +103,7 @@ let projectsList = [
 	},
 	{
 		link_code:"https://github.com/pythons65/sketch",
-		title:"Skectjs library",
+		title:"Sketchjs library",
 		description:"p5.js experience in DOM element",
 		languages:"html,css,js"		
 	},
@@ -143,7 +145,7 @@ function getProjectTemplate(obj) {
   }
   return`<div class="project c${++count % 5}">
                 <div class="detail flex-col">
-          <h2><a href="${obj.link}"  target="_blank">${obj.title} 
+          <h2><a href="${obj.link}"  target="_blank">${capitalizeFirstLetter(obj.title)} 
             ${obj.svg}</a></h2>
           <span>${obj.description}</span>
           <div class="language">
