@@ -316,6 +316,7 @@ a{
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  grid-auto-rows:min-content;
 }
 .c1{
   background-color: var(--project-c1);
