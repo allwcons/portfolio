@@ -16,7 +16,6 @@ function handleChangeView(elt) {
 function findPresentTheme(){
   return getComputedStyle(document.body).getPropertyValue("--theme-bg") == " #F3F6FD" ? "light" : "dark"
 }
-console.log(findPresentTheme())
 function handleThemeChange() {
   let color = getComputedStyle(document.body).getPropertyValue("--theme-bg")
   if (color == ' #F3F6FD') {
@@ -171,27 +170,27 @@ function addProject(obj){
   count_project++;
 }
 
-function readyTheme(){
-  let theme = findPresentTheme()
-  if (theme == "light"){
-  matchMedia("(prefers-color-scheme: light)").onchange = (e) =>{
-    handleThemeChange()
-    readyTheme()
-  }
-  }else{
-      matchMedia("(prefers-color-scheme: dark)").onchange = (e) =>{
-    handleThemeChange()
-    readyTheme()
-  }
-  }
-}
+// function readyTheme(){
+//   let theme = findPresentTheme()
+//   if (theme == "light"){
+//   matchMedia("(prefers-color-scheme: light)").onchange = (e) =>{
+//     handleThemeChange()
+//     readyTheme()
+//   }
+//   }else{
+//       matchMedia("(prefers-color-scheme: dark)").onchange = (e) =>{
+//     handleThemeChange()
+//     readyTheme()
+//   }
+//   }
+// }
 
 window.onload = ()=>{
   projectsList.forEach(project=>{
     addProject(project)
     number_project.innerHTML = count_project
   })
-  readyTheme()
+  // readyTheme()
 }
 
 
