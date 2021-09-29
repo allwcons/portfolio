@@ -4,7 +4,7 @@
   box-sizing: border-box;
   transition: background-color 0.2s ease-in-out,color 0.2s ease-in-out;
 }
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root{
     --text-color:black;
     --theme-bg: #F3F6FD;
@@ -23,7 +23,7 @@
     --project-c3:hsla(68, 71%, 61%, 1);
     --project-c4:hsla(36, 75%, 73%, 1);
   }
-}
+} */
 .light{
     --text-color:black;
     --theme-bg: #F3F6FD;
@@ -64,7 +64,7 @@
     --project-c4:#37250B;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root{
     --theme-bg: #3E4557;
     --text-color:white;
@@ -84,7 +84,7 @@
     --project-c3:#1F3E44;
     --project-c4:#37250B;
   }
-}
+} */
 
 body{
   margin-inline:10px;

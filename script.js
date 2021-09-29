@@ -171,21 +171,27 @@ function addProject(obj){
   count_project++;
 }
 
+function readyTheme(){
+  let theme = findPresentTheme()
+  if (theme == "light"){
+  matchMedia("(prefers-color-scheme: light)").onchange = (e) =>{
+    handleThemeChange()
+    readyTheme()
+  }
+  }else{
+      matchMedia("(prefers-color-scheme: dark)").onchange = (e) =>{
+    handleThemeChange()
+    readyTheme()
+  }
+  }
+}
+
 window.onload = ()=>{
   projectsList.forEach(project=>{
     addProject(project)
     number_project.innerHTML = count_project
   })
-  let theme = findPresentTheme()
-  if (theme == "dark"){
-  matchMedia("(prefers-color-scheme: light)").onchange = (e) =>{
-    handleThemeChange()
-  }
-  }else{
-      matchMedia("(prefers-color-scheme: dark)").onchange = (e) =>{
-    handleThemeChange()
-  }
-  }
+  readyTheme()
 }
 
 
